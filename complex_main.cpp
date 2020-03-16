@@ -90,6 +90,10 @@ void array() {
     Complex array[50], sum;
     std::cout << "Lungime sir: ";
     std::cin >> n;
+    while (n < 1) {
+        std::cout << "Lungimea trebuie sa fie mai mare decat 0, incercati din nou" << std::endl << "Lungime sir: ";
+        std::cin >> n;
+    }
     for (i = 0; i < n; i++) {
         std::cout << "Partea reala: ";
         std::cin >> real;
