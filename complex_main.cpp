@@ -16,33 +16,18 @@ Complex Read(Complex x) {
     return x;
 }
 
-void Show(Complex x) {
-    if (x.getReal() == 0) {
-        std::cout << x.getImaginary() << "i";
-    }
-    else {
-        if (x.getImaginary() == 0) {
-            std::cout << x.getReal();
-        }
-        else {
-            std::cout << x.getReal() << " + " << x.getImaginary() << "i" ;
-        }
-    }
-}
-
-
 
 void add(Complex x) {
     Complex y, suma;
     y = Read(y);
     std::cout << std::endl;
-    Show(x);
+    x.show_compl();
     std::cout << " +" << std::endl;
-    Show(y);
+    y.show_compl();
     std::cout << std::endl << "________" << std::endl;
 
     suma = x.Add(y);
-    Show(suma);
+    suma.show_compl();
     std::cout << std::endl;
 }
 
@@ -50,13 +35,13 @@ void mult(Complex x) {
     Complex y, rezultat;
     y = Read(y);
     std::cout << std::endl;
-    Show(x);
+    x.show_compl();
     std::cout << " *" << std::endl;
-    Show(y);
+    y.show_compl();
     std::cout << std::endl << "________" << std::endl;
 
     rezultat = x.Mult(y);
-    Show(rezultat);
+    rezultat.show_compl();
     std::cout << std::endl;
 }
 
@@ -64,20 +49,20 @@ void quot(Complex x) {
     Complex y, rezultat;
     y = Read(y);
     std::cout << std::endl;
-    Show(x);
+    x.show_compl();
     std::cout << " :" << std::endl;
-    Show(y);
+    y.show_compl();
     std::cout << std::endl << "________" << std::endl;
 
     rezultat = x.Quot(y);
-    Show(rezultat);
+    rezultat.show_compl();
     std::cout << std::endl;
 }
 
 void abs(Complex x) {
     double rezultat;
     std::cout << "| ";
-    Show(x);
+    x.show_compl();
     rezultat = x.Abs();
     std::cout << " |" << " = " << rezultat << std::endl;
 }
@@ -105,11 +90,11 @@ void array() {
     }
     std::cout << std::endl << "SIR" << std::endl;
     for (i = 0; i < n - 1; i++) {
-        Show(array[i]);
+        array[i].show_compl();
         std::cout << ", ";
         
     }
-    Show(array[n - 1]);
+    array[n - 1].show_compl();
     std::cout << std::endl;
 
 //sort array
@@ -128,10 +113,10 @@ void array() {
         }
     }
     for (i = 0; i < n - 1; i++) {
-        Show(array[i]);
+        array[i].show_compl();
         std::cout << ", ";
     }
-    Show(array[n - 1]);
+    array[n - 1].show_compl();
     std::cout << std::endl;
 
 //sum array
@@ -144,13 +129,13 @@ void array() {
     sum.setReal(real);
     sum.setImaginary(imaginar);
     std::cout << std::endl << "SUMA ELEMENTELOR" << std::endl;
-    Show(sum);
+    sum.show_compl();
     std::cout << std::endl;
 
 }
 
 void compute_polar(Complex x) {
-    std::cout << x.Abs() << "*(cos(" << x.ComputePolar() << ")+isin(" << x.ComputePolar() << "))\n";
+    std::cout << x.Abs() << " * (cos(" << x.ComputePolar() << ") + isin(" << x.ComputePolar() << "))\n";
 }
 
 int main()
@@ -158,8 +143,10 @@ int main()
   Complex x, y, suma;
     x = Read(x);
     std::cout << std::endl << "FORMA COMPLEXA" << std::endl;
-    Show(x);
-    std::cout << std::endl << std::endl << "FORMA POLARA" << std::endl;
+    x.show_compl();
+    std::cout << std::endl << std::endl << "FORMA EXPONENTIALA" << std::endl;
+    x.show_exp();
+    std::cout << std::endl << "FORMA POLARA" << std::endl;
     compute_polar(x);
     std::cout << std::endl << "MODUL" << std::endl;
     abs(x);
@@ -168,8 +155,7 @@ int main()
     std::cout << std::endl << "INMULTIRE" << std::endl;
     mult(x);
     std::cout << std::endl << "IMPARTIRE" << std::endl;
-    quot(x);
-    
+    quot(x);  
     std::cout << std::endl << "SIR DE NUMERE COMPLEXE" << std::endl;
     array();
     std::cout << std::endl << "BYE-BYE! :)" << std::endl;
