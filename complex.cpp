@@ -1,6 +1,8 @@
 #include "complex.h"
 #include <iostream>
-#include <tgmath.h>
+#include <cmath>
+
+
 
 
 Complex::Complex() {
@@ -28,13 +30,34 @@ void Complex::setReal(double real) {
 }
 
 // getter
-double Complex::getImaginary() const {
+double Complex::getImaginary() const{
 	return imaginar;
 }
 
 // setter
 void Complex::setImaginary(double imaginar) {
 	this->imaginar = imaginar;
+}
+
+
+void Complex::show_compl() {
+	if (real == 0) {
+		std::cout << imaginar << "i";
+	}
+	else {
+		if (imaginar == 0) {
+			std::cout << real;
+		}
+		else {
+			std::cout << real << " + " << imaginar << "i";
+		}
+	}
+}
+
+void Complex::show_exp() {
+	double r = Abs();
+	double phi = ComputePolar();
+	std::cout << r << " * e^(" << phi << "i)" << std::endl;
 }
 
 Complex Complex::operator+ (Complex y) {
@@ -58,30 +81,11 @@ Complex Complex::operator/ (Complex y) {
 	return rezultat;
 }
 
+
 double Complex::Abs() {
 	return sqrt(real * real + imaginar * imaginar);
 }
 
 double Complex::ComputePolar() {
-	return atan(imaginar/real);
-}
-
-void Complex::show_compl() {
-	if (real == 0) {
-		std::cout << imaginar << "i";
-	}
-	else {
-		if (imaginar == 0) {
-			std::cout << real;
-		}
-		else {
-			std::cout << real << " + " << imaginar << "i";
-		}
-	}
-}
-
-void Complex::show_exp() {
-	double r = Abs();
-	double phi = ComputePolar();
-	std::cout << r << " * e^(" << phi << "i)" << std::endl;
+	return atan(imaginar / real);
 }
