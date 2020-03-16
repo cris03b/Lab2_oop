@@ -1,6 +1,6 @@
 #include "complex.h"
 #include <iostream>
-#include <cmath>
+#include <tgmath.h>
 
 
 Complex::Complex() {
@@ -28,7 +28,7 @@ void Complex::setReal(double real) {
 }
 
 // getter
-double Complex::getImaginary() const{
+double Complex::getImaginary() const {
 	return imaginar;
 }
 
@@ -60,4 +60,8 @@ Complex Complex::Quot(Complex y) {
 
 double Complex::Abs() {
 	return sqrt(real * real + imaginar * imaginar);
+}
+
+double Complex::ComputePolar() {
+	return atan(imaginar/real);
 }
